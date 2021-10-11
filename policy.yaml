@@ -1,7 +1,7 @@
 apiVersion: k8s.nginx.org/v1
 kind: Policy
 metadata:
-  name: rate-limit-policy-2021
+  name: maintenance-policy-2021
   namespace: default
 spec:
   accessControl:
