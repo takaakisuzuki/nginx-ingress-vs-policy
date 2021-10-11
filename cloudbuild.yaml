@@ -1,4 +1,7 @@
 steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: [ 'container', 'clusters', 'get-credentials', 'nginx-ingress-latest', '--zone', 'asia-northeast1-a', '--project', '$PROJECT_ID' ]
+  id: gcloud container clusters get-credentials
 - name: 'gcr.io/cloud-builders/kubectl'
   args: [ 'apply', '-f', 'policy.yaml' ]
   id: kubectl apply
