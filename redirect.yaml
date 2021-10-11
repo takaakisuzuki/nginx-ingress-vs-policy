@@ -1,0 +1,26 @@
+apiVersion: k8s.nginx.org/v1
+kind: VirtualServer
+metadata:
+  name: nginx-test-redirect
+spec:
+  host: test.takaaki-nginx.xyz
+  tls:
+    secret: cafe-secret
+  upstreams:
+  - name: nginx-v1
+    service: nginx-v1-svc
+    port: 80
+    healthCheck:
+      enable: true
+      path: /
+  routes:
+  - path: /
+    policies:
+    - name: rate-limit-policy-2021
+    action:
+      pass: nginx-v1
+    errorPages:
+    - codes: [403]
+      redirect:
+        code: 302
+        url: https://nginx.org
