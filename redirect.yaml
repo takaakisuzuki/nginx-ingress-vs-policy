@@ -3,7 +3,7 @@ kind: VirtualServer
 metadata:
   name: nginx-test-redirect
 spec:
-  host: application.takaaki-f5-nginx.xyz
+  host: application.tek-safari.com
   tls:
     secret: cafe-secret
   upstreams:
