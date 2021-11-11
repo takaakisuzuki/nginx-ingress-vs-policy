@@ -15,8 +15,8 @@ spec:
       path: /
   routes:
   - path: /
-    policies:
-    - name: waf-policy
+    #policies:
+    #- name: waf-policy
     action:
       pass: nginx-v2
     errorPages:
