@@ -3,13 +3,6 @@ steps:
   args: [ 'container', 'clusters', 'get-credentials', 'nginx-takaaki-demo', '--zone', 'asia-northeast1-a', '--project', '$PROJECT_ID' ]
   id: gcloud container clusters get-credentials
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: [ 'apply', '-f', 'redirect.yaml' ]
-  id: kubectl apply redirect
-  env:
-      - "CLOUDSDK_COMPUTE_REGION=asia-northeast1-a"
-      - "CLOUDSDK_COMPUTE_ZONE=asia-northeast1-a        "
-      - "CLOUDSDK_CONTAINER_CLUSTER=nginx-takaaki-demo"
-- name: 'gcr.io/cloud-builders/kubectl'
   args: [ 'apply', '-f', 'policy.yaml' ]
   id: kubectl apply policy
   env:
