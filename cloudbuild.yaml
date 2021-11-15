@@ -16,3 +16,17 @@ steps:
       - "CLOUDSDK_COMPUTE_REGION=asia-northeast1-a"
       - "CLOUDSDK_COMPUTE_ZONE=asia-northeast1-a	"
       - "CLOUDSDK_CONTAINER_CLUSTER=nginx-takaaki-demo"
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: [ 'apply', '-f', 'ingress-vs-f5.yaml' ]
+  id: kubectl apply ingrss-vs-f5
+  env:
+      - "CLOUDSDK_COMPUTE_REGION=asia-northeast1-a"
+      - "CLOUDSDK_COMPUTE_ZONE=asia-northeast1-a	"
+      - "CLOUDSDK_CONTAINER_CLUSTER=nginx-takaaki-demo"
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: [ 'apply', '-f', 'ingress-vs.yaml' ]
+  id: kubectl apply ingrss-vs
+  env:
+      - "CLOUDSDK_COMPUTE_REGION=asia-northeast1-a"
+      - "CLOUDSDK_COMPUTE_ZONE=asia-northeast1-a	"
+      - "CLOUDSDK_CONTAINER_CLUSTER=nginx-takaaki-demo"

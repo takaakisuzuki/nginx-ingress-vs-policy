@@ -1,0 +1,26 @@
+apiVersion: k8s.nginx.org/v1
+kind: VirtualServer
+metadata:
+  name: ingress-f5-nginx
+spec:
+  host: takaaki-f5-nginx.xyz
+  tls:
+    secret: cafe-secret
+  upstreams:
+  - name: nginx-v2
+    service: nginx-v2-svc
+    port: 80
+    healthCheck:
+      enable: true
+      path: /
+  routes:
+  - path: /
+    policies:
+    - name: maintenance-policy-2021
+    action:
+      pass: nginx-v2
+    errorPages:
+    - codes: [403]
+      redirect:
+        code: 302
+        url: https://nginx.org
