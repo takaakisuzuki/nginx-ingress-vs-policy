@@ -7,8 +7,8 @@ spec:
   tls:
     secret: cafe-secret
   upstreams:
-  - name: nginx-v2
-    service: nginx-v2-svc
+  - name: nginx-f5
+    service: nginx-f5-svc
     port: 80
     healthCheck:
       enable: true
@@ -18,7 +18,7 @@ spec:
     policies:
     - name: maintenance-policy-2021
     action:
-      pass: nginx-v2
+      pass: nginx-f5
     errorPages:
     - codes: [403]
       redirect:

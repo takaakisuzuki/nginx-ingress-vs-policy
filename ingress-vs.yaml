@@ -23,4 +23,4 @@ spec:
     - codes: [403]
       redirect:
         code: 302
-        url: https://nginx.org
+        url: https://takaaki-f5.xyz
