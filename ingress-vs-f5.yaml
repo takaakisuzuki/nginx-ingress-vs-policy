@@ -16,7 +16,7 @@ spec:
   routes:
   - path: /
     policies:
-    - name: maintenance-policy-2021
+    - name: waf-policy
     action:
       pass: nginx-f5
     errorPages:
