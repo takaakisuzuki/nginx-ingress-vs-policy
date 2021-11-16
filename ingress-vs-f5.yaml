@@ -15,8 +15,8 @@ spec:
       path: /
   routes:
   - path: /
-    policies:
-    - name: maintenance-policy-2021
+    #policies:
+    #- name: maintenance-policy-2021
     action:
       pass: nginx-f5
     errorPages:
